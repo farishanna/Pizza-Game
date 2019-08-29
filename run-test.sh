@@ -46,7 +46,8 @@ for i in test/*.in ; do
   out=${i%.in}.out
 	param=${i%.in}.param
 	if [[ -e $param ]]; then
-		$p "$(< $param)" < $i > tmp 2>&1
+    mapfile -t < "$param"
+		$p "${MAPFILE[@]}" < $i > tmp 2>&1
 	else
 		$p < $i > tmp 2>&1
 	fi
