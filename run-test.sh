@@ -5,8 +5,8 @@
 #
 # You do not need to temper with it.
 
-if [[ "$1" == "" ]]; then
-	echo "Synopsis: $0 <executable-to-test>"
+if [[ "$1" == "" || "$2" == "" ]]; then
+	echo "Synopsis: $0 <executable-to-test> <test-dir>"
 	exit 1
 fi
 
@@ -16,17 +16,19 @@ else
 	p=./$1
 fi
 
+test="$2"
+
 if [[ ! -e $p ]]; then
 	echo "Cannot find the executable: $p"
 	exit 1
 fi
 
-if [[ ! -e test ]] ; then
+if [[ ! -e $test ]] ; then
 	echo "Could not find the test directory!"
 	exit 1
 fi
 
-if [[ $(ls test|grep ".in$"|wc -l) == 0 ]] ; then
+if [[ $(ls $test|grep ".out$"|wc -l) == 0 ]] ; then
 	echo "Could not find a test inside the test directory"
 	exit 1
 fi
@@ -34,8 +36,9 @@ fi
 summarks=0
 totalmarks=0
 
-for i in test/*.in ; do
-	marks=${i%.in}.marks
+for out in $test/*.out ; do
+  test=${out%.out}
+	marks=${out%.out}.marks
 	if [[ -e $marks ]]; then
 		marks=$(cat $marks)
 	else
@@ -43,13 +46,20 @@ for i in test/*.in ; do
 	fi
 	totalmarks=$(($totalmarks + $marks))
 
-  out=${i%.in}.out
-	param=${i%.in}.param
-	if [[ -e $param ]]; then
-    mapfile -t < "$param"
-		$p "${MAPFILE[@]}" < $i > tmp 2>&1
+  in=$test.in
+	param=$test.param
+  if [[ -e $param ]]; then
+    if [[ -e $in ]] ; then
+		  cat $in | xargs $p < $param > tmp 2>&1
+    else
+      xargs $p < $param > tmp 2>&1
+    fi
 	else
-		$p < $i > tmp 2>&1
+    if [[ -e $in ]] ; then
+      $p < $in > tmp 2>&1
+    else
+      $p > tmp 2>&1
+    fi
 	fi
 	ERR=$?
 	if [[ $ERR == 0 ]] ; then
@@ -66,14 +76,16 @@ for i in test/*.in ; do
 		fi
 	fi
   if [[ $ERR != 0 ]]; then
-    echo "ERR: $ERR"
+    echo "ERR: $test: $ERR"
   else
-    echo "OK: $i"
+    echo "OK: $test"
 		summarks=$(($summarks + $marks))
   fi
 done
 
 echo
-echo "Total $summarks/$totalmarks"
+echo "$summarks/$totalmarks marks"
 
-rm tmp
+if [[ -e tmp ]]; then
+  rm tmp
+fi
