@@ -1,7 +1,0 @@
-Sorting petshop1.sh doesn't produce the required output
-Sorting petshop2.sh doesn't produce the required output
-Sorting petshop3.sh doesn't produce the required output
-Sorting petshop4.sh doesn't produce the required output
-Sorting petshop5.sh doesn't produce the required output
-Sorting petshop6.sh doesn't produce the required output
-0/6 marks
