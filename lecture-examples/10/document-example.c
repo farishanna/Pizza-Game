@@ -8,8 +8,10 @@
 #define MAXBUFFERSIZE 1024 /* max number of chars in text buffer */
 
 int main(int argc, char ** argv){
+
   /* 'docs' is our main data structure: a collection of documents */
   char docs[MAXDOCS][MAXLINES][MAXCHARS]; /* 3-D array */
+
   int ndoc=0, nline=0, nchar=0; /* 3 indexes, one for each dimension */
   char answer;
   int tot_docs, tot_lines, tot_chars;

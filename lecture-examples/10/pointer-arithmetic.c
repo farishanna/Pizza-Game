@@ -11,7 +11,7 @@ int main(int argc, char ** argv){
   printf("   p=%p \n p+1=%p \n p+2=%p\n",
     p,
     p + 1, // this is actually pointer arithmetic!
-    p + 10);
+    p + 2);
   printf("Note that the address is incremented by sizeof(int) == %lu\n", sizeof(int));
 
   // alternative to pointer arithmetic:

@@ -22,6 +22,8 @@ void inc_generic(void * p, enum type_e typ){
 int main(int argc, char ** argv){
   int x = 5;
   inc_generic(&x, TYPE_INTEGER);
+  //double y = 5.5;
+  //inc_generic(&y, TYPE_DOUBLE);
   printf("x=%d\n", x);
   return 0;
 }
