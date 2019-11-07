@@ -8,7 +8,6 @@
 
 struct graph_t{
   int size;
-  bool  * terminates;
   char ** edge_value; // node_count * node_count
 };
 
@@ -17,8 +16,6 @@ typedef struct graph_t graph_t; // a graph is the start of a list of nodes
 graph_t * init_graph(int size){
   graph_t * g = malloc(sizeof(graph_t));
   g->size = size;
-  g->terminates = malloc(sizeof(bool)*size);
-  memset(g->terminates, 0, sizeof(bool) * size);
   g->edge_value = malloc(sizeof(void*)*size);
   // initialize rows
   for(int i=0; i < size; i++){
@@ -72,8 +69,6 @@ void graph_printer(int id){
 
 int main(){
   graph_t * graph = init_graph(4);
-  graph_node_terminates(graph, 2);
-  graph_node_terminates(graph, 3);
 
   node_add_edge(graph, 0, 1, 'b');
   node_add_edge(graph, 0, 3, 'a');
