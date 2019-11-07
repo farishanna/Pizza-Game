@@ -86,6 +86,6 @@ int main(){
 
   printf("start from .\n");
   bfs(graph, 3, graph_printer);
-  
+
   return 0;
 }
