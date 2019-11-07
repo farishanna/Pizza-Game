@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int keep_count(int new_value){
   static int count; // local variable which keeps value! Initialized with 0.
   count = count + new_value;
