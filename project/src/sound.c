@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "sound.h"
+#include "common.h"
 
 static void loadSounds(void);
 
@@ -28,9 +28,9 @@ static Mix_Music *music;
 void initSounds(void)
 {
 	memset(sounds, 0, sizeof(Mix_Chunk*) * SND_MAX);
-	
+
 	music = NULL;
-	
+
 	loadSounds();
 }
 

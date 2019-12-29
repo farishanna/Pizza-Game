@@ -1,30 +1,53 @@
-/*
-Copyright (C) 2015-2018 Parallel Realities
+#ifndef COMMON_H_
+#define COMMON_H_
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+#include <ctype.h>
+#include <math.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#include <defs.h>
+#include <structs.h>
 
-See the GNU General Public License for more details.
+App app;
+Entity *player;
+Stage stage;
+Entity *self;
 
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+char *readFile(const char *filename);
+int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2);
+int isInsideMap(int x, int y);
+SDL_Texture *loadTexture(char *filename);
+void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y);
+void blit(SDL_Texture *texture, int x, int y, int center);
+void calcSlope(int x1, int y1, int x2, int y2, float *dx, float *dy);
+void cleanup(void);
+void doCamera(void);
+void doEntities(void);
+void doInput(void);
+void doPlayer(void);
+void drawEntities(void);
+void drawMap(void);
+void drawText(int x, int y, int r, int g, int b, int align, char *format, ...);
+void initBlock(char *line);
+void initEntities(void);
+void initFonts(void);
+void initGame(void);
+void initMap(void);
+void initPizza(char *line);
+void initPlatform(char *line);
+void initPlayer(void);
+void initSDL(void);
+void initSounds(void);
+void initStage(void);
+void loadMusic(char *filename);
+void playMusic(int loop);
+void playSound(int id, int channel);
+void prepareScene(void);
+void presentScene(void);
 
-*/
-
-#include "stdlib.h"
-#include "stdio.h"
-#include "string.h"
-#include "math.h"
-#include "ctype.h"
-
-#include "SDL2/SDL.h"
-
-#include "defs.h"
-#include "structs.h"
+#endif

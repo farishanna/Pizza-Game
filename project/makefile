@@ -7,7 +7,7 @@ SEARCHPATH += src
 vpath %.c $(SEARCHPATH)
 vpath %.h $(SEARCHPATH)
 
-DEPS +=
+DEPS += common.h structs.h
 
 _OBJS += block.o
 _OBJS += camera.o
@@ -26,17 +26,17 @@ OBJS = $(patsubst %,$(OUT)/%,$(_OBJS))
 all: $(PROG)
 
 # compiling other source files.
-$(OUT)/%.o: %.c %.h $(DEPS)
+$(OUT)/%.o: %.c $(DEPS)
 	@mkdir -p $(OUT)
 	$(CC) $(CFLAGS) $(CXXFLAGS) -c -o $@ $<
-	
+
 # cleaning everything that can be automatically recreated with "make".
 clean:
 	$(RM) -rf $(OUT) $(PROG)
 
 CXXFLAGS += `sdl2-config --cflags`
 CXXFLAGS += -Wall -Wempty-body -Werror -Wstrict-prototypes -Werror=maybe-uninitialized -Warray-bounds
-CXXFLAGS += -g -lefence
+CXXFLAGS += -g -lefence -I./src
 
 LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 

@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "input.h"
+#include "common.h"
 
 void doKeyUp(SDL_KeyboardEvent *event)
 {
@@ -39,7 +39,7 @@ void doKeyDown(SDL_KeyboardEvent *event)
 void doInput(void)
 {
 	SDL_Event event;
-	
+
 	while (SDL_PollEvent(&event))
 	{
 		switch (event.type)
@@ -47,11 +47,11 @@ void doInput(void)
 			case SDL_QUIT:
 				exit(0);
 				break;
-				
+
 			case SDL_KEYDOWN:
 				doKeyDown(&event.key);
 				break;
-				
+
 			case SDL_KEYUP:
 				doKeyUp(&event.key);
 				break;

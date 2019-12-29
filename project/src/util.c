@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "util.h"
+#include "common.h"
 
 int collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)
 {
