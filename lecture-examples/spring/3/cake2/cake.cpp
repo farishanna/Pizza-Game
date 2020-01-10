@@ -39,7 +39,6 @@ int Cake::GetSlices()
 	return iSlices;
 }
 
-LongCake::LongCake(){
-  Cake();
+LongCake::LongCake() : Cake(){
   iSlices = 12;
 }

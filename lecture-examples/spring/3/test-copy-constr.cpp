@@ -5,7 +5,7 @@ using namespace std;
 
 // compile with g++ -I. test-constr.cpp -o test-constr
 
-// this test shows how constructors are called
+// this test shows how the copy constructor is called
 
 class test1{
 public:
@@ -17,7 +17,7 @@ public:
     cout << "CC test1" << endl;
   }
 
-  virtual ~test1(){ // virtual ensures that the correct destructor is called!
+  ~test1(){ // virtual ensures that the correct destructor is called!
     cout << "D test1" << endl;
   }
 };
@@ -32,7 +32,7 @@ public:
     cout << "CC test2" << endl;
   }
 
-  virtual ~test2(){
+  ~test2(){
     cout << "D test2" << endl;
   }
 };
