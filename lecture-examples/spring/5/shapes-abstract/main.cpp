@@ -8,7 +8,6 @@ void printShape(shape *p);
 
 int main(){
 
-  shape * A;
   float a, b, r;
   cout << "Please enter the sides of the Rectangle you wish to create"
        << endl;
@@ -19,7 +18,7 @@ int main(){
 
   // Call the constructors
   rectangle * Box = new rectangle(a,b);
-  circle * Disk = new circle(r);
+  shape * Disk = new circle(r); // this is also possible
 
   // print the areas
   printShape(Box);

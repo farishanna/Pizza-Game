@@ -5,6 +5,6 @@ using namespace std;
 
 class shape{
 public:
-virtual float area(void) = 0;
+  virtual float area(void) = 0;
 };
 #endif
