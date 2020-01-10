@@ -6,5 +6,6 @@ using namespace std;
 class shape{
 public:
   virtual float area(void) = 0;
+  virtual ~shape(){}; // virtual destructor
 };
 #endif

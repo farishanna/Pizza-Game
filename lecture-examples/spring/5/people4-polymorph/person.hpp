@@ -18,6 +18,7 @@ public:
     {
       // empty constructor
     }
+  virtual ~person(){};
 
   string getName() {
     return name;
