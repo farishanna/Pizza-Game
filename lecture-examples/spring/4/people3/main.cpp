@@ -13,5 +13,9 @@ int main(){
 
   student max("Max Mustermann", 4712, COLOR_GREEN, 83000303);
   max.print();
+
+  boss = max;
+  boss.print();
+
   return 0;
 }

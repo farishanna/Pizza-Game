@@ -23,5 +23,10 @@ int main(){
   cout << "We call the print function using call by reference. This will use our virtual function." << endl;
   callPersonPrint(max);
 
+  // we can directly create a reference using a variable
+  person & p = max;
+  p.print();
+  cout << "Using RTTI to retrieve the type of p: " << typeid(p).name() << endl;
+
   return 0;
 }

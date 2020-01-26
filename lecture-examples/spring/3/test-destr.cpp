@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// compile with g++ -I. test-constr.cpp -o test-constr
+// compile with g++ -I. test-destr.cpp -o test-constr
 
 // this test shows how destructors are called
 
@@ -12,7 +12,7 @@ public:
     cout << "C test1" << endl;
   }
 
-  ~test1(){ 
+  ~test1(){
     cout << "D test1" << endl;
   }
 };
@@ -37,6 +37,6 @@ int main(){
   cout << "now freeing the object using delete" << endl;
   delete t2p; // free memory and destroy
 
-  cout << "By leaving the scope of an object, the destructor is called" << endl;
+  cout << "By leaving the scope of a function, the destructor is called" << endl;
   return 0;
 }
