@@ -1,7 +1,9 @@
-#include "demo.h"
 #include <iostream>
 
 using namespace std;
+
+class demo{
+};
 
 int main()
 {
@@ -22,8 +24,7 @@ int main()
   delete [] array;
   
   // Can also allocate objects
-  demo *D = new demo(size,2,3);
-  cout << "Dynamic D " << D->get_abc() << endl;
+  demo *D = new demo();
   delete D;
   
   return 0;
