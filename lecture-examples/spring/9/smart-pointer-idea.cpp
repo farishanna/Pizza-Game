@@ -1,12 +1,13 @@
 #include<iostream>
 using namespace std;
 
-// Illustrate the basic idea of a wrapper pointer on a fixed data type
-
+// Illustrate the basic idea of a wrapper pointer on an integer data type
 class SmartPointer {
    int *ptr;  // Actual pointer
 public:
-   SmartPointer(int *p = NULL) { ptr = p; }
+   SmartPointer(int *p = NULL) {
+     ptr = p;
+   }
 
    ~SmartPointer() {
      delete(ptr);
