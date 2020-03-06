@@ -21,12 +21,15 @@ string firstNVowels(string const & str, int count){
       }
     }
   }
+  if(found < count){
+    return "invalid";
+  }
   return vowels;
 }
 
 int main(){
   assert(firstNVowels("sharpening skills", 3) == "aei");
   assert(firstNVowels("major league", 5) == "aoeau");
-  assert(firstNVowels("hostess", 5) == "oe");
+  assert(firstNVowels("hostess", 5) == "invalid");
   return 0;
 }
