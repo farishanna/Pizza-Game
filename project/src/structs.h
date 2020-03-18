@@ -49,7 +49,7 @@ struct Entity {
 	float ey;
 	float sx;
 	float sy;
-	float dx;
+	float dx; // this is the delta / speed in x-direction
 	float dy;
 	int health;
 	int isOnGround;
