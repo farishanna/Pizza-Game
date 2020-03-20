@@ -9,9 +9,6 @@ using namespace std;
 // Task: model a selection of life forms for simulation of their behavior in a small  environment
 // https://manoa.hawaii.edu/exploringourfluidearth/biological/what-alive/classification-life
 
-// Other characteristics of a life form:
-// https://study.com/academy/lesson/8-characteristics-of-life-in-biology.html
-
 
 // our environment consists of lifeforms and substances
 // let's assume no space
