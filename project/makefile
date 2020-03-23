@@ -41,7 +41,7 @@ CXXFLAGS += -g -lefence -I./src
 
 #LDFLAGS += `./install/bin/sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
 # use for local installation
-LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lm
+LDFLAGS += `sdl2-config --libs` -lSDL2_mixer -lSDL2_image -lm
 
 
 # linking the program.
