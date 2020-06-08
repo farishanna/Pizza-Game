@@ -45,6 +45,7 @@ void initEntities(void);
 void initFonts(void);
 void initGame(void);
 void initMap(void);
+void initEnemy(char *line);
 void initPizza(char *line);
 void initPlatform(char *line);
 void initPlayer(void);
