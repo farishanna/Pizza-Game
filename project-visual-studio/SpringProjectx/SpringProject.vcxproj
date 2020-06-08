@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <C1Compile Include="enemy.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="src\block.c" />
     <ClCompile Include="src\camera.c" />
@@ -36,7 +37,6 @@
     <ClCompile Include="src\text.c" />
     <ClCompile Include="src\textures.c" />
     <ClCompile Include="src\util.c" />
-    <C1Compile Include="src\enemy.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
