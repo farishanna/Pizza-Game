@@ -9,7 +9,7 @@ of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
+i
 See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
@@ -51,6 +51,9 @@ void doEntities(void)
 
 		if (e->health <= 0)
 		{
+			if (e == player) {
+				exit(1);
+			}
 			if (e == stage.entityTail)
 			{
 				stage.entityTail = prev;
@@ -291,6 +294,10 @@ static void addEntFromLine(char *line)
 	else if (strcmp(name, "PIZZA") == 0)
 	{
 		initPizza(line);
+	}
+	else if (strcmp(name, "ENEMY") == 0)
+	{
+		initEnemy(line);
 	}
 	else
 	{
